@@ -6,7 +6,7 @@ import openai
 
 # OpenAI 준비
 with open('key.txt', 'r') as f:
-    key = f.read()[:0:-1] # put any character at the front of the key
+    key = f.read()[:1:-1] # put any character at the front of the key
 openai.api_key = key
 model_engine = "text-davinci-003"
 max_tokens = 2048
@@ -56,7 +56,7 @@ for content in contents:
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
-    ))
+    ).choices[0].text.strip())
     
 with open('answer_from_chatGPT.txt', 'w') as f:
     f.writelines(answers)
