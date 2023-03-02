@@ -7,4 +7,4 @@
 1. Run 'main_esafety.py' or 'AutoLearn_esafety.exe'.
 2. Put your ID in the following pop-up window.
 3. You don't need to look back again. Just go and brew your coffee.
-* The exe file might not included due to the security issue.
+* The EXE file may not be downloaded due to the security issue.
