@@ -13,7 +13,7 @@ def solve_ox_quiz():
 
 def solve_test():
     for i, quiz in enumerate(driver.find_element(By.ID,"quiz-type-2").find_elements(By.XPATH, '*')):
-        driver.find_element(By.ID,"quiz-type-2").find_elements(By.XPATH, '*')[i].click()
+        quiz.find_element(By.ID,"quiz-type-2").find_elements(By.XPATH, '*')[i].click()
     driver.find_element(By.CLASS_NAME, "next").click()
 
 def pass_summary():
@@ -70,3 +70,4 @@ if __name__ == '__main__':
                                 time.sleep(5)
         else:
             break
+    driver.quit()
