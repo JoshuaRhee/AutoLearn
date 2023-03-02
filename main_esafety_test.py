@@ -6,7 +6,7 @@ import openai
 
 # OpenAI 준비
 with open('key.txt', 'r') as f:
-    key = f.read()[:1:-1] # put any character at the front of the key
+    key = f.read()[:0:-1] # put any character at the front of the key
 openai.api_key = key
 model_engine = "text-davinci-003"
 max_tokens = 2048
@@ -41,11 +41,13 @@ for content in contents:
     title = quopri.decodestring(title_texts[-1].encode('utf-8')).decode('utf-8') # Quoted-Printable 디코딩
     ex_texts.extend([ex.text for ex in content.find_all(class_='3D"c-test-quiz-content')])
     ex = quopri.decodestring(ex_texts[-1].encode('utf-8')).decode('utf-8') # Quoted-Printable 디코딩
-    full_question = title + ex
-    full_question = [string for string in full_question.split('\n')]
-    full_question = [string for string in full_question if string.strip()]
-    full_question = [string.strip().replace('  ', ' ') for string in full_question]
-    full_question = ', '.join(full_question)
+    
+    ex = [string for string in ex.split('\n')]
+    ex = [string for string in ex if string.strip()]
+    ex = [string.strip().replace('  ', ' ') for string in ex]
+    ex = ', '.join(ex)
+    
+    full_question = title.strip() + ex
     print(full_question)
     
     answers.append(openai.Completion.create(
