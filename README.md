@@ -8,3 +8,6 @@
 2. Put your ID in the following pop-up window.
 3. You don't need to look back again. Just go and brew your coffee.
 * The EXE file may not be downloaded due to the security issue.
+
+## Memo:
+* A bug found in "test 2". (not fixed yet)
