@@ -1,3 +1,6 @@
+## main_esafety.py
+## rev_date: 23.05.24
+
 import chromedriver_autoinstaller
 import easygui
 from selenium import webdriver
@@ -12,8 +15,12 @@ def solve_ox_quiz():
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "next"))).click()
 
 def solve_test():
-    for i, quiz in enumerate(driver.find_element(By.ID,"quiz-type-2").find_elements(By.XPATH, '*')):
-        quiz.find_element(By.ID,"quiz-type-2").find_elements(By.XPATH, '*')[i].click()
+    question_list = driver.find_element(By.ID,"quiz-type-2").find_elements(By.XPATH, '*')
+    for i, quiz in enumerate(question_list):
+        if i != len(question_list)-1:
+            quiz.find_elements(By.CLASS_NAME, 'quiz2-question-single')[0].click()
+        else: 
+            quiz.find_element(By.CLASS_NAME, 'q2-sm-button').click()
     driver.find_element(By.CLASS_NAME, "next").click()
 
 def pass_summary():

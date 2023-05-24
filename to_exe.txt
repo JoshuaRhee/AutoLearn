@@ -1,0 +1,1 @@
+pyinstaller --icon=AutoLearn.ico --onefile --noconsole main_esafety.py
